@@ -2,19 +2,27 @@
 title: 'Practice 1: Regular Expressions'
 author: "Martínez Casimiro Nestor Hugo"
 date: "2024-02-24"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
-## Import necessary libraries and reading csv
-```{python}
+```{r, include=FALSE}
+library(reticulate)
+```
+
+
+<!-- ## Import necessary libraries and reading csv -->
+```{python, include = FALSE}
 import re
 import pandas as pd
 
 tweets = pd.read_csv("tweets 2.csv")
 ```
 
-## Define extraction functions
-```{python}
+<!-- ## Define extraction functions -->
+```{python, include=FALSE}
 def extract_hashtags(text):
     hashtags = re.findall(r'#(\w+)', text)
     return hashtags
@@ -24,8 +32,7 @@ def extract_users(text):
     return users
 
 def extract_urls(text):
-    urls = re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]\
-                      |[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
+    urls = re.findall(r"(?:https?://|www\.|ftp\.)(?:[A-Za-z\d\-_]+(?:\.[A-Za-z\d\-_]+)*)(?:/[^\s]*)?",text)
     return urls
 
 def extract_times(text):
@@ -45,8 +52,8 @@ def extract_emojis(text):
     return emojis
 ```
 
-## Apply functions to extract required information
-```{python}
+<!-- ## Apply functions to extract required information -->
+```{python, include=FALSE}
 tweets['hashtags'] = tweets['text'].apply(extract_hashtags)
 tweets['users'] = tweets['text'].apply(extract_users)
 tweets['urls'] = tweets['text'].apply(extract_urls)
@@ -55,8 +62,8 @@ tweets['emoticons'] = tweets['text'].apply(extract_emoticons)
 tweets['emojis'] = tweets['text'].apply(extract_emojis)
 ```
 
-## Count frequency 
-```{python}
+<!-- ## Count frequency  -->
+```{python, include=FALSE}
 flatten = lambda l: [item for sublist in l for item in sublist]
 
 hashtags_freq = pd.Series(flatten(tweets['hashtags'])).value_counts()
@@ -67,8 +74,8 @@ emoticons_freq = pd.Series(flatten(tweets['emoticons'])).value_counts()
 emojis_freq = pd.Series(flatten(tweets['emojis'])).value_counts()
 ```
 
-## Create data frames to save data
-```{python}
+<!-- ## Create data frames to save data -->
+```{python, include=FALSE}
 hashtags_df = pd.DataFrame({'hashtags': hashtags_freq.index, 'Frequency': hashtags_freq.values})
 users_df = pd.DataFrame({'Users': users_freq.index, 'Frequency': users_freq.values})
 urls_df = pd.DataFrame({'URLs': urls_freq.index, 'Frequency': urls_freq.values})
@@ -86,35 +93,38 @@ top_10_emojis = emojis_df.head(10)
 ```
 
 ## Top 10 hashtags
-```{python}
-top_10_hashtags
+```{python, results = "asis"}
+print(top_10_hashtags.to_markdown(index=False))
 ```
+<!-- \newpage -->
 
 ## Top 10 users
-```{python}
-top_10_users
+```{python, results = "asis"}
+print(top_10_users.to_markdown(index=False))
 ```
+\newpage
 
 ## Top 10 urls
-```{python}
-top_10_urls
+```{python, results = "asis"}
+print(top_10_urls.to_markdown(index=False))
 ```
 
 ## Top 10 times
-```{python}
-top_10_times
+```{python, results = "asis"}
+print(top_10_times.to_markdown(index=False))
 ```
 
 ## Top 10 emoticons
-```{python}
-top_10_emoticons
+```{python, results='asis'}
+print(top_10_emoticons.to_markdown(index=False))
 ```
+\newpage
 
 ## Top 10 emojis
 ```{python, eval=FALSE}
 top_10_emojis
 ```
 
-The last chunk of code isn't executed since it cannot be displayed by LATEX due to some encoding issues that will be handled later. However i add an image of the actual input:  
+The last chunk of code isn't executed since it cannot be displayed by LATEX due to some encoding issues. However, i'll add an image of the actual output:  
 
-![Emoji list](Screenshot 2024-02-24 234316.png)
+![Emoji list](Emojis.png)
