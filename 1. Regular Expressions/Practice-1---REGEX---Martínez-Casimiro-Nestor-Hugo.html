@@ -1628,106 +1628,120 @@ display: none;
 </div>
 
 
-<pre class="r"><code>library(reticulate)</code></pre>
-<div id="import-necessary-libraries-and-reading-csv" class="section level2">
-<h2>Import necessary libraries and reading csv</h2>
-</div>
-<div id="define-extraction-functions" class="section level2">
-<h2>Define extraction functions</h2>
-<pre class="python"><code>def extract_hashtags(text):
-    hashtags = re.findall(r&#39;#(\w+)&#39;, text)
-    return hashtags
-
-def extract_users(text):
-    users = re.findall(r&#39;@(\w+)&#39;, text)
-    return users
-
-def extract_urls(text):
-    urls = re.findall(r&quot;(?:https?://|www\.|ftp\.)(?:[A-Za-z\d\-_]+(?:\.[A-Za-z\d\-_]+)*)(?:/[^\s]*)?&quot;,text)
-    return urls
-
-def extract_times(text):
-    times = re.findall(r&#39;\b(?:1[012]|0?[0-9]):[0-5][0-9]\s*(?:[ap]\.?m\.?)?\b&#39;,
-                      text, re.IGNORECASE)
-    return times
-
-def extract_emoticons(text):
-    emoticons = re.findall(r&#39;(?::|;|=)(?:-)?(?:\)|\(|D|P)&#39;, text)
-    return emoticons
-
-def extract_emojis(text):
-    emojis = &#39;&#39;.join(re.findall(r&#39;[\U0001F300-\U0001F5FF]|[\U0001F600-\U0001F64F]\
-    |[\U0001F680-\U0001F6FF]|[\U0001F700-\U0001F77F]|[\U0001F780-\U0001F7FF]\
-    |[\U0001F800-\U0001F8FF]|[\U0001F900-\U0001F9FF]|[\U0001FA00-\U0001FA6F]\
-    |[\U0001FA70-\U0001FAFF]|[\U00002702-\U000027B0]|[\U000024C2-\U0001F251]&#39;, text))
-    return emojis</code></pre>
-</div>
-<div id="apply-functions-to-extract-required-information" class="section level2">
-<h2>Apply functions to extract required information</h2>
-<pre class="python"><code>tweets[&#39;hashtags&#39;] = tweets[&#39;text&#39;].apply(extract_hashtags)
-tweets[&#39;users&#39;] = tweets[&#39;text&#39;].apply(extract_users)
-tweets[&#39;urls&#39;] = tweets[&#39;text&#39;].apply(extract_urls)
-tweets[&#39;times&#39;] = tweets[&#39;text&#39;].apply(extract_times)
-tweets[&#39;emoticons&#39;] = tweets[&#39;text&#39;].apply(extract_emoticons)
-tweets[&#39;emojis&#39;] = tweets[&#39;text&#39;].apply(extract_emojis)</code></pre>
-</div>
-<div id="count-frequency" class="section level2">
-<h2>Count frequency</h2>
-<pre class="python"><code>flatten = lambda l: [item for sublist in l for item in sublist]
-
-hashtags_freq = pd.Series(flatten(tweets[&#39;hashtags&#39;])).value_counts()
-users_freq = pd.Series(flatten(tweets[&#39;users&#39;])).value_counts()
-urls_freq = pd.Series(flatten(tweets[&#39;urls&#39;])).value_counts()
-times_freq = pd.Series(flatten(tweets[&#39;times&#39;])).value_counts()
-emoticons_freq = pd.Series(flatten(tweets[&#39;emoticons&#39;])).value_counts()
-emojis_freq = pd.Series(flatten(tweets[&#39;emojis&#39;])).value_counts()</code></pre>
-</div>
-<div id="create-data-frames-to-save-data" class="section level2">
-<h2>Create data frames to save data</h2>
-<pre class="python"><code>hashtags_df = pd.DataFrame({&#39;hashtags&#39;: hashtags_freq.index, &#39;Frequency&#39;: hashtags_freq.values})
-users_df = pd.DataFrame({&#39;Users&#39;: users_freq.index, &#39;Frequency&#39;: users_freq.values})
-urls_df = pd.DataFrame({&#39;URLs&#39;: urls_freq.index, &#39;Frequency&#39;: urls_freq.values})
-times_df = pd.DataFrame({&#39;Times&#39;: times_freq.index, &#39;Frequency&#39;: times_freq.values})
-emoticons_df = pd.DataFrame({&#39;Emoticons&#39;: emoticons_freq.index,
-                              &#39;Frequency&#39;: emoticons_freq.values})
-emojis_df = pd.DataFrame({&#39;Emojis&#39;: emojis_freq.index, &#39;Frequency&#39;: emojis_freq.values})
-
-top_10_hashtags = hashtags_df.head(10)
-top_10_users = users_df.head(10)
-top_10_urls = urls_df.head(10)
-top_10_times = times_df.head(10)
-top_10_emoticons = emoticons_df.head(10)
-top_10_emojis = emojis_df.head(10)</code></pre>
-</div>
+<!-- ## Import necessary libraries and reading csv -->
+<!-- ## Define extraction functions -->
+<!-- ## Apply functions to extract required information -->
+<!-- ## Count frequency  -->
+<!-- ## Create data frames to save data -->
 <div id="top-10-hashtags" class="section level2">
 <h2>Top 10 hashtags</h2>
-<pre class="python"><code>top_10_hashtags</code></pre>
-<pre><code>##        hashtags  Frequency
-## 0  UnidosTodosX         26
-## 1   DeZurdaTeam         26
-## 2   GranHermano         21
-## 3   granhermano          9
-## 4          gelp          7
-## 5   OTDirecto5E          4
-## 6          gh23          4
-## 7   NadieComoTú          3
-## 8     VíasChile          3
-## 9   OTDirecto4E          3</code></pre>
+<pre class="python"><code>print(top_10_hashtags.to_markdown(index=False))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">hashtags</th>
+<th align="right">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">UnidosTodosX</td>
+<td align="right">26</td>
+</tr>
+<tr class="even">
+<td align="left">DeZurdaTeam</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="left">GranHermano</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">granhermano</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">gelp</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">OTDirecto5E</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">gh23</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">NadieComoTú</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">VíasChile</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">OTDirecto4E</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+<!-- \newpage -->
 </div>
 <div id="top-10-users" class="section level2">
 <h2>Top 10 users</h2>
-<pre class="python"><code>top_10_users</code></pre>
-<pre><code>##            Users  Frequency
-## 0   petrogustavo          7
-## 1   DeZurdaTeam_          6
-## 2         JMilei          4
-## 3         biobio          3
-## 4     radiocarab          3
-## 5    TTISantiago          3
-## 6      mop_chile          3
-## 7         mop_rm          3
-## 8     JLMendoza_          2
-## 9  TiendaSoriana          2</code></pre>
+<pre class="python"><code>print(top_10_users.to_markdown(index=False))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Users</th>
+<th align="right">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">petrogustavo</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">DeZurdaTeam_</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">JMilei</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">biobio</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">radiocarab</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">TTISantiago</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">mop_chile</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">mop_rm</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">JLMendoza_</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">TiendaSoriana</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
 </div>
 <div id="top-10-urls" class="section level2">
 <h2>Top 10 urls</h2>
@@ -1777,27 +1791,75 @@ top_10_emojis = emojis_df.head(10)</code></pre>
 </div>
 <div id="top-10-times" class="section level2">
 <h2>Top 10 times</h2>
-<pre class="python"><code>top_10_times</code></pre>
-<pre><code>##      Times  Frequency
-## 0   11:11           2
-## 1   3:00            2
-## 2  2:38 am          1
-## 3  00:17am          1
-## 4     3:12          1
-## 5    4:20           1
-## 6    00:01          1</code></pre>
+<pre class="python"><code>print(top_10_times.to_markdown(index=False))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Times</th>
+<th align="right">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">11:11</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">3:00</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">2:38 am</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">00:17am</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">3:12</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">4:20</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">00:01</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="top-10-emoticons" class="section level2">
 <h2>Top 10 emoticons</h2>
-<pre class="python"><code>top_10_emoticons</code></pre>
-<p>Emoticons Frequency 0 :) 7 1 :( 2</p>
+<pre class="python"><code>print(top_10_emoticons.to_markdown(index=False))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Emoticons</th>
+<th align="right">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">:)</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">:(</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
 </div>
 <div id="top-10-emojis" class="section level2">
 <h2>Top 10 emojis</h2>
 <pre class="python"><code>top_10_emojis</code></pre>
 <p>The last chunk of code isn’t executed since it cannot be displayed by
-LATEX due to some encoding issues that will be handled later. However i
-add an image of the actual input:</p>
+LATEX due to some encoding issues. However, i’ll add an image of the
+actual output:</p>
 <div class="float">
 <img src="data:image/png;base64,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" alt="Emoji list" />
 <div class="figcaption">Emoji list</div>

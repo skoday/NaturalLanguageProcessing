@@ -3,9 +3,9 @@ title: 'Practice 1: Regular Expressions'
 author: "Martínez Casimiro Nestor Hugo"
 date: "2024-02-24"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r, include=FALSE}
