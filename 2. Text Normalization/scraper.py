@@ -81,9 +81,13 @@ class Expansion:
 
     url = None
     sectionsUrl = None
+    headers = None
 
     def __init__(self) -> None:
         self.url = "https://expansion.mx/canales-rss"
+        self.headers = {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36'
+                        }
 
     def getSectionsUrl(self, sections = None):
         """"
@@ -93,11 +97,10 @@ class Expansion:
         """
 
         if sections == None:
-            sections = ['rss', 'empresas', 'economia', 'nacional', 'politica', 'mundo', 'tecnologia',
-                        'tendencias', 'carrera', 'dinero', 'emprendedores', 'opinion', 'videos']
+            sections = ['economia', 'tecnologia']
     
         try:
-            response = requests.get(self.url)
+            response = requests.get(self.url, headers = self.headers)
 
             if response.status_code == 200:
 
@@ -110,7 +113,7 @@ class Expansion:
                 self.sectionsUrl = urls
 
             else:
-                print(f"Page returned status code: {response.status_code}")
+                print(f"Expansion Page returned status code: {response.status_code}")
         
         except requests.RequestException as e:
             print(f"Error: {e}")
@@ -132,10 +135,11 @@ class Expansion:
 
         # Downloading FIles
         for url in self.sectionsUrl:
+
             fileName = url.split('/')[-1] + ".xml"
             filePath = os.path.join(folderPath, "Expansion - "+fileName)
 
-            response = requests.get(url)
+            response = requests.get(url, headers=self.headers)
 
             # Saving file
             with open(filePath, "wb") as file:
