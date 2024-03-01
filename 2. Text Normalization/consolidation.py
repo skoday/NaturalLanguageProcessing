@@ -1,17 +1,32 @@
 import os
-import xml.etree.ElementTree as ET
 import csv
 from datetime import datetime
+from bs4 import BeautifulSoup
+import re
 
 class Consolidation:
     def __init__(self):
         self.root_folder = "RawData"
+        self.html_tags = re.compile(r"<.*?>|]]>")
+        self.sections = {"economia":"Economía", "tecnologia":"Ciencia y tecnología",
+                         "ciencias":"Ciencia y tecnología", "deportes":"Deportes",
+                         "cultura":"Cultura"}
+        self.sources = {"Jornada":"La Jornada", "Expansion":"Expansión"}
 
     def writingCsv(self, data, csv_file):
+        
         headers = ['Source', 'Title', 'Content', 'Section', 'Url', 'Date']
-        with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
+        file_exists = os.path.exists(
+                            os.path.join(self.root_folder, csv_file)
+                    )
+        
+        mode = 'a' if file_exists else 'w'
+
+        with open(csv_file, mode=mode, newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            writer.writerow(headers)
+
+            if not file_exists:
+                writer.writerow(headers)
             for item in data:
                 writer.writerow(item)
 
@@ -29,24 +44,33 @@ class Consolidation:
                         xml_file_path = os.path.join(folder_path, filename)
                         print(f"Reading: {xml_file_path}")
 
-                        try:
-                            tree = ET.parse(xml_file_path)
-                            root = tree.getroot()
+                        with open(xml_file_path, "r", encoding="utf-8") as file:
+                            data = file.read()
 
-                            for item in root.findall('item'):
-                                title = item.find('title').text
-                                content = item.find('description').text
-                                pub_date = datetime.strptime(item.find('pubDate').text, '%a, %d %b %Y %H:%M:%S %Z')
-                                section = "economia"
-                                source = "Jornada"
-                                url = item.find('link').text
-                                formatted_date = pub_date.strftime('%d/%m/%Y')
-                                consolidated_data.append([source, title, content, section, url, formatted_date])
+                        soup = BeautifulSoup(data, "xml")
+                        items = soup.find_all("item")
 
-                        except ET.ParseError as e:
-                            print(f"Error parsing XML file {xml_file_path}: {e}")
-                        except Exception as e:
-                            print(f"Error processing XML file {xml_file_path}: {e}")
+                        for item in items:
+                            try:
+                                content = item.find("content:encoded").get_text()
+                                content = self.html_tags.sub("", content).strip()
+                            except:
+                                content = item.find("description").get_text()
+
+                            title = item.find("title").get_text()
+                            link = item.find("link").get_text()
+
+                            date = item.find("pubDate").get_text()
+                            date_obj = datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %Z")
+                            date = date_obj.strftime("%d/%m/%Y")
+
+                            pre_section = xml_file_path.split(" ")[-1].split(".")[0]
+                            section = self.sections[pre_section]
+
+                            pre_source = xml_file_path.split("/")[-1].split(" ")[0]
+                            source = self.sources[pre_source]
+
+                            consolidated_data.append([source, title, content, section, link, date])
 
         if consolidated_data:
             self.writingCsv(consolidated_data, 'consolidated_data.csv')
@@ -54,60 +78,3 @@ class Consolidation:
 
 consolidator = Consolidation()
 consolidator.consolidate()
-
-
-
-
-
-"""import os
-import xml.etree.ElementTree as ET
-import csv
-from datetime import datetime
-
-class Consolidation:
-
-    def __init__(self):
-        self.root_folder = "RawData"
-
-    def writingCsv(self, root)
-
-    def consolidate(self):
-
-        for folder_name in os.listdir(self.root_folder):
-            folder_path = os.path.join(self.root_folder, folder_name)
-
-            if os.path.isdir(folder_path):
-                print(f"Processing: {folder_name}")
-
-                for filename in os.listdir(folder_path):
-                    if filename.endswith(".xml"):
-                        
-                        xml_file_path = os.path.join(folder_path, filename)
-                        print(f"Reading: {xml_file_path}")
-
-                        try:
-                            tree = ET.parse(xml_file_path)
-                            root = tree.getroot()
-
-                            pass
-                        except ET.ParseError as e:
-                            print(f"Error parsing XML file {xml_file_path}: {e}")
-                        except Exception as e:
-                            print(f"Error processing XML file {xml_file_path}: {e}")
-
-
-
-|root
-|consolidation.py
-|-RawData
-|--2024-02-29
-|---archivo.xml
-|---archivo.xml
-|---archivo.xml
-|--2024-03-01
-|---archivo.xml
-|---archivo.xml
-
-new_object =  Consolidation()
-Consolidation.path
-"""
