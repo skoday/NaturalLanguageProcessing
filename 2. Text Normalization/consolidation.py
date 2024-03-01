@@ -75,6 +75,3 @@ class Consolidation:
         if consolidated_data:
             self.writingCsv(consolidated_data, 'consolidated_data.csv')
             print("CSV file generated successfully.")
-
-consolidator = Consolidation()
-consolidator.consolidate()
