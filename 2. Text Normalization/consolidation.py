@@ -51,12 +51,14 @@ class Consolidation:
                         items = soup.find_all("item")
 
                         for item in items:
+                            """
                             try:
                                 content = item.find("content:encoded").get_text()
                                 content = self.html_tags.sub("", content).strip()
                             except:
                                 content = item.find("description").get_text()
-
+                            """
+                            content = item.find("description").get_text()
                             title = item.find("title").get_text()
                             link = item.find("link").get_text()
 
