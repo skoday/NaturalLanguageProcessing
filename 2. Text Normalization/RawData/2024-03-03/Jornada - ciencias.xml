@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>La Jornada: Ciencias</title>
+    <pubDate>Sun, 03 Mar 2024 08:46:30 GMT</pubDate>
+      <lastBuildDate>Sun, 03 Mar 2024 08:46:30 GMT</lastBuildDate>
+      <description>Noticias de la sección de Ciencias del diario mexicano La Jornada</description>
+      <link>https://www.jornada.com.mx/2024/03/03/index.php?section=ciencias</link>
+    <language>es-mx</language>
+    <ttl>1440</ttl>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <image>
+      <title>La Jornada</title>
+      <url>https://www.jornada.com.mx/imagenes/logo_250x50.png</url>
+      <link>https://www.jornada.com.mx/</link>
+    </image>
+    
+  </channel>
+</rss>

@@ -18,12 +18,15 @@ class Normalization:
         
     def writeFile(self, data, name):
         data.to_csv(name, index=False)
+        print("Data has been normalized sucessfully:)")
 
     def normalize(self):
         if not self.fileExists():
             return print("No such file exists.\nBye Bye")
 
         data = self.readFile()
+        data.dropna(inplace=True)
+        data.drop_duplicates(inplace=True)
         data["Título"] = data["Título"].apply(self.nlp)
         data["Contenido"] = data["Contenido"].apply(self.nlp)
 
