@@ -31,11 +31,12 @@ class Normalization:
         data["Contenido"] = data["Contenido"].apply(self.nlp)
 
         def traverse_entity(doc):
-            result = []
+            result = " "
             for item in doc:
                 if item.pos_ not in self.stopwords:
-                    result.append(item.lemma_)
-            return result
+                    #result.append(item.lemma_)
+                    result = result + item.lemma_ + " "
+            return result.strip()
 
         data["Título"] = data["Título"].apply(traverse_entity)
         data["Contenido"] = data["Contenido"].apply(traverse_entity)
