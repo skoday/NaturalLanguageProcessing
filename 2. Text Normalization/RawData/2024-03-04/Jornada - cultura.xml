@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>La Jornada: Cultura</title>
+    <pubDate>Mon, 04 Mar 2024 08:25:02 GMT</pubDate>
+      <lastBuildDate>Mon, 04 Mar 2024 08:25:02 GMT</lastBuildDate>
+      <description>Noticias de la sección de Cultura del diario mexicano La Jornada</description>
+      <link>https://www.jornada.com.mx/2024/03/04/index.php?section=cultura</link>
+    <language>es-mx</language>
+    <ttl>1440</ttl>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <image>
+      <title>La Jornada</title>
+      <url>https://www.jornada.com.mx/imagenes/logo_250x50.png</url>
+      <link>https://www.jornada.com.mx/</link>
+    </image>
+    
+      <item>
+	
+        <title>Hermann Bellinghausen: El Monje y la baronesa   </title>
+        <link>https://www.jornada.com.mx/2024/03/04/cultura/a04a1cul?partner=rss</link>
+	<author>Hermann Bellinghausen</author>
+        <description>Hay fuegos interiores que    dificultan y acaban haciendo imposible la vida de artistas que han iluminado con sus antorchas a un mundo que las necesita. Eso le ocurrió a Thelonious Monk, uno de los padres del be bop y uno de los jazzistas más originales y virtuosos de la historia, que ya es decir. Había algo de ángel en él, incluyendo esa fragilidad propensa a graves riesgos. Nacido en 1917, poco después sus padres se mudaron a Manhattan, al departamento donde Thelonious vivió hasta su vida adulta. Como su amigo Charlie Parker, traía integrado su propio demonio, pero a diferencia de Bird, no tuvo problemas serios de adicción; lo suyo, literalmente, era mental. Mal diagnosticado por los siquiatras, fue tratado como loco o depresivo. Su familia lo salvó de los electrochoques, pero no de los antisicóticos que lo dejaron inútil los últimos años de su vida.</description>
+        <pubDate>Mon, 04 Mar 2024 08:25:02 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>Por su libertad, Margo Glantz es la autora más cercana a las nuevas generaciones   </title>
+        <link>https://www.jornada.com.mx/2024/03/04/cultura/a04n1cul?partner=rss</link>
+	
+        <description>La escritora y académica Margo Glantz posee una apertura a temas lejanos en apariencia y al diálogo con nuevas generaciones de autoras y ha desarrollado una obra literaria apasionada y diferente. Estas fueron algunas características de la actividad creativa y personalidad de la también académica que se celebraron al mediodía de este domingo en el homenaje que recibió en el Palacio de Bellas Artes.</description>
+        <pubDate>Mon, 04 Mar 2024 08:25:02 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>Gladiola Orozco evoca su inicio en la danza: “sublime; era poner un pie en la esperanza”   </title>
+        <link>https://www.jornada.com.mx/2024/03/04/cultura/a02n1cul?partner=rss</link>
+	
+        <description>La coreógrafa, bailarina y maestra Gladiola Orozco, quien el próximo 9 de octubre cumplirá 90 años, asegura que “con pasión se puede lograr todo en la vida”. Su labor en favor de la danza contemporánea y la cultura del país ha sido esencial.</description>
+        <pubDate>Mon, 04 Mar 2024 08:25:02 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>Blanca Ríos se despide de los escenarios  con La Esmeralda   </title>
+        <link>https://www.jornada.com.mx/2024/03/04/cultura/a03n2cul?partner=rss</link>
+	
+        <description>Después de 23 años de carrera, la primera bailarina de la Compañía Nacional de Danza (CND), Blanca Ríos, se despide de los escenarios este 10 de marzo en el Palacio de Bellas Artes con el Ballet La Esmeralda, inspirado en la novela Nuestra señora de París, de Victor Hugo.</description>
+        <pubDate>Mon, 04 Mar 2024 08:25:02 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>El Ceprodac reconocerá en un tributo la vocación y entrega de la maestra Orozco   </title>
+        <link>https://www.jornada.com.mx/2024/03/04/cultura/a03n1cul?partner=rss</link>
+	
+        <description>El Centro de Producción de Danza Contemporánea (Ceprodac), que dirige Cecilia Lugo, realizará un homenaje a la bailarina, coreógrafa y fundadora del desaparecido Ballet Teatro del Espacio, Gladiola Orozco, este 16 de marzo en la sala principal del Palacio de Bellas Artes.</description>
+        <pubDate>Mon, 04 Mar 2024 08:25:02 GMT</pubDate>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>La Jornada: Ciencias</title>
+    <pubDate>Tue, 05 Mar 2024 08:39:59 GMT</pubDate>
+      <lastBuildDate>Tue, 05 Mar 2024 08:39:59 GMT</lastBuildDate>
+      <description>Noticias de la sección de Ciencias del diario mexicano La Jornada</description>
+      <link>https://www.jornada.com.mx/2024/03/05/index.php?section=ciencias</link>
+    <language>es-mx</language>
+    <ttl>1440</ttl>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <image>
+      <title>La Jornada</title>
+      <url>https://www.jornada.com.mx/imagenes/logo_250x50.png</url>
+      <link>https://www.jornada.com.mx/</link>
+    </image>
+    
+      <item>
+	
+        <title>Descubren astrolabio del siglo XI que fue usado por musulmanes, judíos y cristianos   </title>
+        <link>https://www.jornada.com.mx/2024/03/05/ciencias/a06n2cie?partner=rss</link>
+	
+        <description>Madrid. Un raro astrolabio islámico del siglo XI con inscripciones en árabe y hebreo y cuyo origen se sitúa en Toledo fue descubierto en un museo italiano por una experta de la Universidad de Cambridge.</description>
+        <pubDate>Tue, 05 Mar 2024 08:39:59 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>“Racismo y discriminación dificultan la presencia de mujeres indígenas en la ciencia”   </title>
+        <link>https://www.jornada.com.mx/2024/03/05/ciencias/a05n1cie?partner=rss</link>
+	
+        <description>Racismo, pobreza, desaparición de lenguas y desplazamiento son cuatro factores que dificultan la presencia de indígenas en la ciencia en México. El panorama se complica todavía más para las mujeres, que además de la discriminación racial deben enfrentar la de género, consideran investigadoras indígenas.</description>
+        <pubDate>Tue, 05 Mar 2024 08:39:59 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>Jorge Veraza Urtusuástegui analiza la inteligencia artificial desde un enfoque marxista   </title>
+        <link>https://www.jornada.com.mx/2024/03/05/ciencias/a06n1cie?partner=rss</link>
+	
+        <description>Aunque existe la percepción de que la inteligencia artificial (IA) podría solucionar problemas de explotación laboral y facilitar la vida de las personas, “como es tecnología utilizada de forma capitalista, más bien se usa para perfeccionar la explotación y sobrexplotación de la clase obrera”, consideró Jorge Veraza Urtuzuástegui en la presentación de su libro Karl Marx, la inteligencia artificial y el gobierno despótico de la producción (A 200 años del nacimiento del pensador de la revolución comunista).</description>
+        <pubDate>Tue, 05 Mar 2024 08:39:59 GMT</pubDate>
+      </item>
+    
+  </channel>
+</rss>

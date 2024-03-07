@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>La Jornada: Ciencias</title>
+    <pubDate>Wed, 06 Mar 2024 09:26:27 GMT</pubDate>
+      <lastBuildDate>Wed, 06 Mar 2024 09:26:27 GMT</lastBuildDate>
+      <description>Noticias de la sección de Ciencias del diario mexicano La Jornada</description>
+      <link>https://www.jornada.com.mx/2024/03/06/index.php?section=ciencias</link>
+    <language>es-mx</language>
+    <ttl>1440</ttl>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <image>
+      <title>La Jornada</title>
+      <url>https://www.jornada.com.mx/imagenes/logo_250x50.png</url>
+      <link>https://www.jornada.com.mx/</link>
+    </image>
+    
+      <item>
+	
+        <title>Homínidos del Pleistoceno tenían técnicas complejas y de planificación para elaborar sus herramientas   </title>
+        <link>https://www.jornada.com.mx/2024/03/06/ciencias/a06n2cie?partner=rss</link>
+	
+        <description>Madrid. Homínidos con organización para fabricar herramientas de piedra ocuparon el este de Asia hace 1.1 millones de años, 300 mil antes de las hachas de mano más antiguas halladas en la región.</description>
+        <pubDate>Wed, 06 Mar 2024 09:26:27 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>Se gradúan 10 astronautas de EU; son elegibles para ir a la Luna y a Marte   </title>
+        <link>https://www.jornada.com.mx/2024/03/06/ciencias/a06n3cie?partner=rss</link>
+	
+        <description>Houston. Luego de dos años de riguroso entrenamiento, 10 estadunidenses se convirtieron de forma oficial en astronautas el martes y ahora son elegibles para misiones de la NASA a la Estación Espacial Internacional (EEI), a la Luna y, si todo va bien, a Marte.</description>
+        <pubDate>Wed, 06 Mar 2024 09:26:27 GMT</pubDate>
+      </item>
+    
+      <item>
+	
+        <title>Con células del líquido amniótico, científicos crean miniórganos   </title>
+        <link>https://www.jornada.com.mx/2024/03/06/ciencias/a06n1cie?partner=rss</link>
+	
+        <description>Washington. Científicos crearon miniórganos a partir de células que flotan en el líquido que rodea al feto en el útero, avance que consideran que podría abrir nuevas áreas de la medicina prenatal.</description>
+        <pubDate>Wed, 06 Mar 2024 09:26:27 GMT</pubDate>
+      </item>
+    
+  </channel>
+</rss>

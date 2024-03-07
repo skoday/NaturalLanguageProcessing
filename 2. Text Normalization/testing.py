@@ -10,9 +10,9 @@ new_object.downloadNews()
 expansion = Expansion()
 expansion.getSectionsUrl()
 expansion.downloadNews()
-
+"""
 consolidation = Consolidation()
-consolidation.consolidate()"""
+consolidation.consolidate()
 
 normalization = Normalization()
 normalization.normalize()
