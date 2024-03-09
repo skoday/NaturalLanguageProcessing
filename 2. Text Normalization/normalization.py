@@ -26,7 +26,7 @@ class Normalization:
 
         data = self.readFile()
         data.dropna(inplace=True)
-        data.drop_duplicates(inplace=True)
+        data.drop_duplicates(subset=["Título", "Contenido"], inplace=True)
         data["Título"] = data["Título"].apply(self.nlp)
         data["Contenido"] = data["Contenido"].apply(self.nlp)
 
